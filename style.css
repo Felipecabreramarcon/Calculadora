@@ -13,23 +13,27 @@ body {
     justify-content: center;
     padding: 3em;
     height: 80vh;
-
+    background-image: url(TOPO-DE-BLOG-IHUB-Dezembro-8.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #calc {
     width: 400px;
 
     padding: .5em;
-    background-color: #c4c4c4;
+    background-color: #c4c4c498;
     color: #000;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.329);
 }
 
 #calc h3 {
     font-size: .8em;
     font-weight: 300;
-    color: #666;
+    color: #ffffff;
 
 }
 
@@ -41,12 +45,12 @@ body {
     color: #777;
     padding: .2em;
     overflow-wrap: break-word;
-    min-height: 2em;
+    min-height: 1.6em;
 }
 
 #current-operation {
-    min-height: 3em;
-    font-size: 3em;
+    min-height: 2.5em;
+    font-size: 2.5em;
     font-weight: 700;
     padding: 0.2em;
     overflow-wrap: break-word;
@@ -56,6 +60,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 3px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid rgba(0, 0, 0, 0.171);
 }
 
 #buttons-container button {
