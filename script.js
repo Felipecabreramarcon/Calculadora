@@ -1,6 +1,7 @@
 const previousOperationText = document.querySelector("#previous-operation")
 const currentOperationText = document.querySelector("#current-operation")
 const buttons = document.querySelectorAll("#buttons-container button")
+let historico = document.querySelector("#historic")
 
 class Calculator {
     constructor(previousOperationText, currentOperationText) {
@@ -32,20 +33,33 @@ class Calculator {
         let previous = +this.previousOperationText.innerText.split(" ")[0];
         let current = +this.currentOperationText.innerText;
 
+
         switch (operation) {
             case "+":
+                if (previous != 0) {
+                    historico.innerHTML += `<div> ${previous} + ${current} = ${previous + current}</div>`
+                }
                 operationValue = previous + current
                 this.updateScreen(operationValue, operation, current, previous)
                 break;
             case "-":
+                if (previous != 0) {
+                    historico.innerHTML += `<div> ${previous} - ${current} = ${previous - current}</div>`
+                }
                 operationValue = previous - current
                 this.updateScreen(operationValue, operation, current, previous)
                 break;
             case "*":
+                if (previous != 0) {
+                    historico.innerHTML += `<div> ${previous} * ${current} = ${previous * current}</div>`
+                }
                 operationValue = previous * current
                 this.updateScreen(operationValue, operation, current, previous)
                 break;
             case "/":
+                if (previous != 0) {
+                    historico.innerHTML += `<div> ${previous} / ${current} = ${previous / current}</div>`
+                }
                 operationValue = previous / current
                 this.updateScreen(operationValue, operation, current, previous)
                 break;
@@ -73,11 +87,13 @@ class Calculator {
         if (operationValue === null) {
 
             this.currentOperationText.innerText += this.currentOperation
+
         } else {
             if (previous == 0) {
                 operationValue = current;
             }
             this.previousOperationText.innerText = `${operationValue} ${operation}`
+
             this.currentOperationText.innerText = ""
         }
 
@@ -105,6 +121,7 @@ class Calculator {
     }
     processEqualsOperator() {
         const operation = previousOperationText.innerText.split(" ")[1]
+
         this.processOperation(operation)
     }
 }
@@ -121,4 +138,19 @@ buttons.forEach((btn) => {
             calc.processOperation(value)
         }
     })
+})
+
+let historic = document.querySelector(".historic")
+let button = document.querySelector(".button")
+let isActive = true
+
+
+button.addEventListener("click", () => {
+    if (isActive) {
+        historic.style.opacity = 0
+        isActive = false
+    } else {
+        historic.style.opacity = 1
+        isActive = true
+    }
 })

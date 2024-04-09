@@ -9,15 +9,37 @@ body {
     font-family: inter;
     background-color: #333;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
     justify-content: center;
     padding: 10em;
     height: 100vh;
     background-image: url(TOPO-DE-BLOG-IHUB-Dezembro-8.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-
 }
+
+.button {
+    min-height: 50px;
+    width: 200px;
+    background-color: #b1b1b193;
+
+    backdrop-filter: blur(2px);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid #33333386;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.button:hover {
+    transition: all 100ms ease-in-out;
+
+    background-color: #33333362;
+    backdrop-filter: blur(12px);
+}
+
 
 #calc {
     width: 400px;
@@ -43,7 +65,7 @@ body {
 }
 
 #previous-operation {
-    color: #777;
+    color: #000000;
     padding: .2em;
     overflow-wrap: break-word;
     min-height: 1.6em;
@@ -90,4 +112,83 @@ body {
 
 #buttons-container #equal-btn:hover {
     background-color: #3a91d8;
+}
+
+.historic {
+    min-height: 100px;
+    width: 300px;
+    background-color: #b1b1b193;
+
+    backdrop-filter: blur(2px);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid #33333386;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.historic div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#historic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media (max-width: 480px) {
+    #calc {
+        width: 250px;
+        height: 350px;
+    }
+
+    #calc h3 {
+        font-size: .8em;
+        font-weight: 300;
+        color: #ffffff;
+    }
+
+    #previous-operation {
+        color: #000000;
+        padding: .2em;
+        overflow-wrap: break-word;
+        min-height: 1.0em;
+    }
+
+    #current-operation {
+        min-height: 1.5em;
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 0.2em;
+        overflow-wrap: break-word;
+    }
+
+    #buttons-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 3px;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 4px solid rgba(0, 0, 0, 0.171);
+    }
+
+    #buttons-container button {
+        border: 1px solid transparent;
+        border-radius: 0;
+        height: 2em;
+        font-size: 1.2em;
+        background-color: #dbdbdb;
+    }
+
 }
